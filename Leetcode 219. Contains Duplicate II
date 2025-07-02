@@ -1,0 +1,15 @@
+class Solution(object):
+    def containsNearbyDuplicate(self, nums, k):
+        
+        seen = {}
+
+        for i in range(len(nums)):
+            # If the element is already in the dictionary and the current index - last index <= k
+
+            if nums[i] in seen and i - seen[nums[i]] <= k:
+                return True
+            #update the index of the current element in the dictionary
+
+            seen[nums[i]] = i
+        
+        return False
